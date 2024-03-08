@@ -351,7 +351,7 @@ while true; do
     fi 
   
 # 读取用户输入的 up 和 down 值
-echo "请输入 up 带宽（单位：mbps）："
+echo "请输入 up 带宽（单位：mbps），对应客户端的 down："
 read -p "" up
 
 echo "请输入 down 带宽（单位：mbps）："
