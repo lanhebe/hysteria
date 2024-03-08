@@ -350,6 +350,22 @@ while true; do
       exit 1 
     fi 
   
+# 读取用户输入的 up 和 down 值
+echo "请输入 up 带宽（单位：mbps），对应客户端的 down："
+read -p "" up
+
+echo "请输入 down 带宽（单位：mbps）："
+read -p "" down
+
+# 将用户输入的值写入配置文件
+sed -i "s/up: 0 gbps/up: $up mbps/g" config.yaml
+sed -i "s/down: 0 gbps/down: $down mbps/g" config.yaml
+
+# 提示用户修改成功
+echo "带宽已修改为："
+echo "up: $up mbps"
+echo "down: $down mbps"
+
 
 generate_certificate() {
     read -p "请输入要用于自签名证书的域名（默认为 bing.com）: " user_domain
